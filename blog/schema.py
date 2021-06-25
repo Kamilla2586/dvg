@@ -1,5 +1,6 @@
 from django.conf import settings
 from graphene_django import DjangoObjectType
+from django.contrib.auth import get_user_model
 
 from blog import models
 import graphene
@@ -7,7 +8,7 @@ import graphene
 
 class UserType(DjangoObjectType):
     class Meta:
-        model = models.Profile
+        model = get_user_model()
 
 
 class AuthorType(DjangoObjectType):
